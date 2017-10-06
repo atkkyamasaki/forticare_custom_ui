@@ -1,0 +1,41 @@
+{
+  "name": "FortiCareCustomAddon",
+  "version": "0.0.1",
+  "manifest_version": 2,
+  "description": "Custom for FortiCare UI",
+  "content_scripts": [
+    {
+      "matches": ["https://forticare.fortinet.com/CustomerSupport/SupportTeam/EditTicket.aspx*"],
+      "js": [
+        "vendor/jquery/jquery-3.2.1.min.js",
+        "vendor/jquery_confirm/jquery-confirm.min.js",
+        "js/main.min.js"
+        // "js/main.js"
+      ],
+      "css": [
+        "vendor/jquery_confirm/jquery-confirm.min.css",
+        "css/main.css"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "browser_action": {
+    "default_icon": {
+      "19": "image/fortinetlogo_19.png",
+      "38": "image/fortinetlogo_38.png"
+    },
+    "default_title": "FortiCare Custom UI"
+  },
+  // "page_action": {
+  //   "default_icon": {
+  //     "19": "image/fortinetlogo_19.png",
+  //     "38": "image/fortinetlogo_38.png"
+  //   },
+  //   "default_title": "FortiCare Custom UI"
+  // },
+  "icons" : {
+    "16": "image/fortinetlogo_16.png",
+    "48": "image/fortinetlogo_48.png",
+    "128": "image/fortinetlogo_128.png"
+  }
+}
