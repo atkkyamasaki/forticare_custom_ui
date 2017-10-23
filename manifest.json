@@ -1,7 +1,7 @@
 {
   "name": "FortiCareCustomAddon",
   "author": "Takefumi Yamasaki",
-  "version": "0.0.2",
+  "version": "1.0.0",
   "manifest_version": 2,
   "description": "Custom for FortiCare UI",
   "content_scripts": [
