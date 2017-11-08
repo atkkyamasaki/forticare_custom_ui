@@ -1,7 +1,7 @@
 {
   "name": "FortiCareCustomAddon",
   "author": "Takefumi Yamasaki",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "manifest_version": 2,
   "description": "Custom for FortiCare UI",
   "content_scripts": [
@@ -10,13 +10,31 @@
       "js": [
         "vendor/jquery/jquery-3.2.1.min.js",
         "vendor/jquery_confirm/jquery-confirm.min.js",
-        "js/main.min.js"
-        // "js/main.js"
+        "js/edit_ticket.min.js"
+        // "js/edit_ticket.js"
       ],
       "css": [
         "vendor/jquery_confirm/jquery-confirm.min.css",
-        // "vendor/font-awesome/css/font-awesome.min.css",
-        "css/main.css"
+        "css/edit_ticket.css"
+      ],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": [
+        "https://forticare.fortinet.com/CustomerSupport/SupportTeam/myunclosedTickets.aspx*",
+        "https://forticare.fortinet.com/CustomerSupport/SupportTeam/MyUnclosedTickets.aspx*"
+      ],
+      "js": [
+        "vendor/jquery/jquery-3.2.1.min.js",
+        "vendor/jquery_confirm/jquery-confirm.min.js",
+        "vendor/jquery_sumoselect/jquery.sumoselect.min.js",
+        "js/my_unclosed_ticket.min.js"
+        // "js/my_unclosed_ticket.js"
+      ],
+      "css": [
+        "vendor/jquery_confirm/jquery-confirm.min.css",
+        "vendor/jquery_sumoselect/sumoselect.min.css",
+        "css/my_unclosed_ticket.css"
       ],
       "run_at": "document_idle"
     }
@@ -26,7 +44,8 @@
       "19": "image/fortinetlogo_19.png",
       "38": "image/fortinetlogo_38.png"
     },
-    "default_title": "FortiCare Custom UI"
+    "default_title": "FortiCare Custom UI",
+    "default_popup": "html/popup.html"
   },
   // "page_action": {
   //   "default_icon": {
@@ -35,9 +54,16 @@
   //   },
   //   "default_title": "FortiCare Custom UI"
   // },
+  "background": {
+    "scripts": ["js/event.js"],
+    "persistent": false
+  },
   "icons" : {
     "16": "image/fortinetlogo_16.png",
     "48": "image/fortinetlogo_48.png",
     "128": "image/fortinetlogo_128.png"
-  }
+  },
+  "permissions": [
+    "storage"
+  ]
 }
