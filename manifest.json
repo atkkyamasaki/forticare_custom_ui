@@ -26,15 +26,27 @@
       ],
       "js": [
         "vendor/jquery/jquery-3.2.1.min.js",
-        "vendor/jquery_confirm/jquery-confirm.min.js",
         "vendor/jquery_sumoselect/jquery.sumoselect.min.js",
         "js/my_unclosed_ticket.min.js"
         // "js/my_unclosed_ticket.js"
       ],
       "css": [
-        "vendor/jquery_confirm/jquery-confirm.min.css",
         "vendor/jquery_sumoselect/sumoselect.min.css",
         "css/my_unclosed_ticket.css"
+      ],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": [
+        "https://forticare.fortinet.com/CustomerSupport/SupportTeam/BrowseTicket.aspx*"
+      ],
+      "js": [
+        "vendor/jquery/jquery-3.2.1.min.js",
+        "js/browse_ticket.min.js"
+        // "js/browse_ticket.js"
+      ],
+      "css": [
+        "css/browse_ticket.css"
       ],
       "run_at": "document_idle"
     }

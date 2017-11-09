@@ -4,6 +4,8 @@ var customerSummary;
 var duration;
 var durationFooter;
 var unclosedFilter;
+var closedMessageColor;
+var closedSummary;
 
 var allFilterName = [
 	"messageColor",
@@ -11,7 +13,9 @@ var allFilterName = [
 	"customerSummary",
 	"duration",
 	"durationFooter",
-	"unclosedFilter"
+	"unclosedFilter",
+	"closedMessageColor",
+	"closedSummary"
 ];
 
 $(function(){

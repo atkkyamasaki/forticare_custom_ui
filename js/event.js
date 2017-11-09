@@ -16,6 +16,12 @@ if (durationFooter == undefined) {
 if (unclosedFilter == undefined) {
 	var unclosedFilter = true;
 }
+if (closedMessageColor == undefined) {
+	var closedMessageColor = true;
+}
+if (closedSummary == undefined) {
+	var closedSummary = true;
+}
 
 chrome.storage.sync.set({
 	"messageColor": messageColor,
@@ -23,5 +29,7 @@ chrome.storage.sync.set({
 	"customerSummary": customerSummary,
 	"duration": duration,
 	"durationFooter": durationFooter,
-	"unclosedFilter": unclosedFilter
-});	
+	"unclosedFilter": unclosedFilter,
+	"closedMessageColor": closedMessageColor,
+	"closedSummary": closedSummary
+});
