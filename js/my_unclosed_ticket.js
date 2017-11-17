@@ -1,13 +1,16 @@
 // 機能の有効、無効状態のフラグを取得
-var unclosedFilter;
+var unclosedFilter = true;
 
-chrome.storage.sync.get([
-		"unclosedFilter"
-	], function(items) {
+var userAgent = window.navigator.userAgent.toLowerCase();
 
-	unclosedFilter = items.unclosedFilter;
-});
+if (userAgent.indexOf('chrome') != -1 || userAgent.indexOf('opera') != -1) {
+	chrome.storage.sync.get([
+			"unclosedFilter"
+		], function(items) {
 
+		unclosedFilter = items.unclosedFilter;
+	});
+}
 
 // 変数定義
 var filterCompany;
@@ -16,7 +19,7 @@ var filterPri;
 // Plugin が動作しているかのチェック
 
 $(function(){
-	$('#aspnetForm > div:nth-child(12) > table:nth-child(1)').after('<p class="plugin_working">FortiCare Cutom Plugin Working now...</p>');
+	$('#aspnetForm > div:nth-child(12) > table:nth-child(1)').after('<p class="plugin_working">FortiCare Custom Plugin Working now...</p>');
 });
 
 

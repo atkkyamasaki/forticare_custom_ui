@@ -1,22 +1,25 @@
 // 機能の有効、無効状態のフラグを取得
-var closedMessageColor;
-var closedSummary;
+var closedMessageColor = true;
+var closedSummary = true;
 
-chrome.storage.sync.get([
-		"closedMessageColor",
-		"closedSummary"
-	], function(items) {
+var userAgent = window.navigator.userAgent.toLowerCase();
 
-	closedMessageColor = items.closedMessageColor;
-	closedSummary = items.closedSummary;
-});
+if (userAgent.indexOf('chrome') != -1 || userAgent.indexOf('opera') != -1) {
+	chrome.storage.sync.get([
+			"closedMessageColor",
+			"closedSummary"
+		], function(items) {
 
+		closedMessageColor = items.closedMessageColor;
+		closedSummary = items.closedSummary;
+	});
+}
 
 
 // Plugin が動作しているかのチェック
 
 $(function(){
-	$('#aspnetForm > div:nth-child(13) > table:nth-child(1)').after('<p class="plugin_working">FortiCare Cutom Plugin Working now...</p>');
+	$('#aspnetForm > div:nth-child(13) > table:nth-child(1)').after('<p class="plugin_working">FortiCare Custom Plugin Working now...</p>');
 });
 
 

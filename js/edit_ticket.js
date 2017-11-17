@@ -1,25 +1,28 @@
 // 機能の有効、無効状態のフラグを取得
-var messageColor;
-var productSummary;
-var customerSummary;
-var duration;
-var durationFooter;
+var messageColor = true;
+var productSummary = true;
+var customerSummary = true;
+var duration = true;
+var durationFooter = true;
 
-chrome.storage.sync.get([
-		"messageColor",
-		"productSummary",
-		"customerSummary",
-		"duration",
-		"durationFooter"
-	], function(items) {
+var userAgent = window.navigator.userAgent.toLowerCase();
 
-	messageColor = items.messageColor;
-	productSummary = items.productSummary;
-	customerSummary = items.customerSummary;
-	duration = items.duration;
-	durationFooter = items.durationFooter;
-});
+if (userAgent.indexOf('chrome') != -1 || userAgent.indexOf('opera') != -1) {
+	chrome.storage.sync.get([
+			"messageColor",
+			"productSummary",
+			"customerSummary",
+			"duration",
+			"durationFooter"
+		], function(items) {
 
+		messageColor = items.messageColor;
+		productSummary = items.productSummary;
+		customerSummary = items.customerSummary;
+		duration = items.duration;
+		durationFooter = items.durationFooter;
+	});
+}
 
 // 各要素の取得、変数の定義
 var titleId = '#ctl00_MainContent_TB_TicketTitle';
@@ -68,7 +71,7 @@ var newSubmitBackButton = "#new_ctl00_MainContent_B_SubmitAndBack";
 // Plugin が動作しているかのチェック
 
 $(function(){
-	$('#aspnetForm > div:nth-child(13) > table:nth-child(1)').after('<p class="plugin_working">FortiCare Cutom Plugin Working now...</p>');
+	$('#aspnetForm > div:nth-child(13) > table:nth-child(1)').after('<p class="plugin_working">FortiCare Custom Plugin Working now...</p>');
 });
 
 
