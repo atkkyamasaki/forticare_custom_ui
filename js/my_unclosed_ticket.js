@@ -56,18 +56,20 @@ function _mainFilter(init, filterCompany, filterPri) {
 
 	// Filter 対象の情報を取得
 	//  - Company 情報を取得
-	var companyNames = $.unique(
-		$('.target_company').map(function(index, element) {
-			return $(element).text();
-		}).get()
-	);
 
-	//  - Pri 情報を取得
-	var priNames = $.unique(
-		$('.target_pri').map(function(index, element) {
-			return $(element).text();
-		}).get()
-	);
+	var companyNames = $('.target_company').map(function(index, element) {
+		return $(element).text();
+	}).get();
+	companyNames = companyNames.filter(function (x, i, self) {
+		return self.indexOf(x) === i;
+	});
+
+	var priNames = $('.target_pri').map(function(index, element) {
+		return $(element).text();
+	}).get();
+	priNames = priNames.filter(function (x, i, self) {
+		return self.indexOf(x) === i;
+	});
 
 
 
